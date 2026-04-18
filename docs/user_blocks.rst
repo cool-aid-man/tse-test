@@ -193,3 +193,15 @@ List Block
 ----------
 
 .. autoclass:: TagScriptEngine.block.ListBlock
+
+-----------
+Cycle Block
+-----------
+
+.. autoclass:: TagScriptEngine.block.CycleBlock
+
+-------------
+Ordinal Block
+-------------
+
+.. autoclass:: TagScriptEngine.block.OrdinalBlock

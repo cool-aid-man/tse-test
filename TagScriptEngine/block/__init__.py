@@ -95,6 +95,12 @@ from .joinblock import (
 from .listblock import (
     ListBlock as ListBlock,
 )
+from .cycleblock import (
+    CycleBlock as CycleBlock,
+)
+from .ordblock import (
+    OrdinalBlock as OrdinalBlock,
+)
 
 __all__: Tuple[str, ...] = (
     "implicit_bool",
@@ -134,4 +140,6 @@ __all__: Tuple[str, ...] = (
     "CountBlock",
     "LengthBlock",
     "JoinBlock",
+    "CycleBlock",
+    "OrdinalBlock",
 )
