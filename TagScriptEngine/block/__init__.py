@@ -140,6 +140,7 @@ __all__: Tuple[str, ...] = (
     "CountBlock",
     "LengthBlock",
     "JoinBlock",
+    "ListBlock",
     "CycleBlock",
     "OrdinalBlock",
 )
