@@ -187,3 +187,9 @@ Join Block
 ----------
 
 .. autoclass:: TagScriptEngine.block.JoinBlock
+
+----------
+List Block
+----------
+
+.. autoclass:: TagScriptEngine.block.ListBlock

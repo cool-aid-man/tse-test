@@ -57,6 +57,7 @@ from .block import (
     LengthBlock as LengthBlock,
     CooldownBlock as CooldownBlock,
     JoinBlock as JoinBlock,
+    ListBlock as ListBlock,
 
 )
 from .interface import (
@@ -133,6 +134,7 @@ __all__: Tuple[str, ...] = (
     "CountBlock",
     "LengthBlock",
     "JoinBlock",
+    "ListBlock",
 
     "SafeObjectAdapter",
     "StringAdapter",
