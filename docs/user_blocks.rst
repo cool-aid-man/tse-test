@@ -192,10 +192,36 @@ The ``in`` block checks if the parameter string is anywhere in the payload as a 
     # true
 
 --------------
-Python Block
+Contains Block
 --------------
 
-.. autoclass:: TagScriptEngine.block.PythonBlock
+The ``contains`` block strictly checks if the parameter is in the payload,
+split by whitespace. This performs **exact** matching on whitespace-split words.
+
+**Usage:** ``{contains(<string>):<payload>}``
+
+**Examples:** ::
+
+    {contains(mute):How does it feel to be muted?}
+    # false
+    {contains(muted?):How does it feel to be muted?}
+    # true
+
+-----------
+Index Block
+-----------
+
+The ``index`` block finds the location/index of the parameter in the payload,
+split by whitespace. Returns ``-1`` if not found. Performs **exact** matching.
+
+**Usage:** ``{index(<string>):<payload>}``
+
+**Examples:** ::
+
+    {index(food):I love to eat food everyone does}
+    # 4
+    {index(pie):I love to eat food}
+    # -1
 
 ----------
 Join Block
