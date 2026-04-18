@@ -176,6 +176,21 @@ Stop Block
 
 .. autoclass:: TagScriptEngine.block.StopBlock
 
+--------
+In Block
+--------
+
+The ``in`` block checks if the parameter string is anywhere in the payload as a substring.
+
+**Usage:** ``{in(<string>):<payload>}``
+
+**Examples:** ::
+
+    {in(apple pie):banana pie apple pie and other pie}
+    # true
+    {in(mute):How does it feel to be muted?}
+    # true
+
 --------------
 Python Block
 --------------
