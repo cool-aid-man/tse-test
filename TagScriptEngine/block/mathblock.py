@@ -155,6 +155,71 @@ NSP: NumericStringParser = NumericStringParser()
 
 
 class MathBlock(Block):
+    """
+    The math block performs mathematical calculations from the given payload expression.
+
+    Supports standard arithmetic operators, exponentiation, modulo, in-place operators,
+    mathematical functions, and constants.
+
+    **Supported Operators:**
+
+    +----------+---------------------+
+    | Operator | Description         |
+    +==========+=====================+
+    | ``+``    | Addition            |
+    +----------+---------------------+
+    | ``-``    | Subtraction         |
+    +----------+---------------------+
+    | ``*``    | Multiplication      |
+    +----------+---------------------+
+    | ``/``    | Division            |
+    +----------+---------------------+
+    | ``^``    | Exponentiation      |
+    +----------+---------------------+
+    | ``%``    | Modulo              |
+    +----------+---------------------+
+    | ``+=``   | In-place addition   |
+    +----------+---------------------+
+    | ``-=``   | In-place subtraction|
+    +----------+---------------------+
+    | ``*=``   | In-place multiply   |
+    +----------+---------------------+
+    | ``/=``   | In-place division   |
+    +----------+---------------------+
+
+    **Supported Functions:**
+    ``sin``, ``cos``, ``tan``, ``sinh``, ``cosh``, ``tanh``,
+    ``exp``, ``abs``, ``trunc``, ``round``, ``sgn``,
+    ``log`` (base 10), ``ln`` (natural), ``log2``, ``sqrt``
+
+    **Constants:** ``PI``, ``E``
+
+    **Usage:** ``{math:<expression>}``
+
+    **Aliases:** ``m, +, calc``
+
+    **Payload:** expression
+
+    **Parameter:** None
+
+    **Examples:** ::
+
+        {math:2+3}
+        # 5
+
+        {m:round(7/3)}
+        # 2
+
+        {calc:sin(PI/2)}
+        # 1.0
+
+        {+:7*6}
+        # 42
+
+        {m:sqrt(144)}
+        # 12.0
+    """
+
     ACCEPTED_NAMES: Tuple[str, ...] = ("math", "m", "+", "calc")
 
     def process(self, ctx: Context) -> TypingOptional[str]:
