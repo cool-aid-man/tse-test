@@ -32,6 +32,63 @@ class AssignmentBlock(verb_required_block(False, parameter=True)):  # type: igno
         {assign(day):Monday}
         {if({day}==Wednesday):It's Wednesday my dudes!|The day is {day}.}
         # The day is Monday.
+
+    .. rubric:: How Argument Parsing Works
+
+    Once a variable is assigned, its value can be parsed (split and indexed)
+    to extract specific parts.
+
+    **Simple — Basic Token Access**
+
+    ``{variable(n)}`` splits the stored value by **spaces** and returns the
+    ``n``-th token. Indexing is **1-based**:
+
+    ::
+
+        {=(msg):Hello world foo bar}
+        {msg(1)}  -> Hello
+        {msg(2)}  -> world
+
+    ``0`` is special and returns the **last** element:
+
+    ::
+
+        {msg(0)}  -> bar
+
+    **Advanced — Negative Indexing, Ranges & Custom Delimiters**
+
+    Negative indices count **backwards** from the end (``-1`` = second-to-last):
+
+    ::
+
+        {msg(-1)}  -> foo
+        {msg(-2)}  -> world
+
+    Appending ``+`` to an index gives a **range** — everything from that
+    position to the end:
+
+    ::
+
+        {msg(-2+)}  -> world foo bar
+
+    A **custom delimiter** can be passed as the payload to change how
+    the value is split. The syntax is ``{variable(index):delimiter}``:
+
+    ::
+
+        {=(data):apple.banana.cherry}
+        {data(2):.}  -> banana
+
+    Variables can be **nested** to perform multi-level parsing:
+
+    ::
+
+        {=(raw):A-B,C,D}
+        {=(part):{raw(2):-}}
+        # part = "B,C,D"
+        {part(1):,}  -> B
+        {part(2):,}  -> C
+
     """
 
     ACCEPTED_NAMES: Tuple[str, ...] = ("=", "assign", "let", "var")
